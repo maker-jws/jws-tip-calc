@@ -68,10 +68,10 @@ class TipCalculator extends Component {
     render() {
         const { calculatedBill, partySize, calculatedTip, totalBill, tipPercent, inputFlag } = this.state
         const perGuest = (calculatedBill / partySize).toFixed(2)
-        const perGuestTip = (this.state.calculatedTip / this.state.partySize).toFixed(2)
-        const perGuestBill = (this.state.calculatedBill / this.state.partySize - perGuestTip).toFixed(2)
-
-
+        const perGuestTip = (calculatedTip / partySize).toFixed(2)
+        const perGuestBill = (calculatedBill / partySize - perGuestTip).toFixed(2)
+        const test = parseFloat(calculatedTip).toFixed(2)
+        console.log(test)
         return (
             <Col md="6" >
                 <Card sm="6" style={{ margin: '1rem', backgroundColor: '#333', borderColor: '#333' }}>
@@ -82,7 +82,7 @@ class TipCalculator extends Component {
                                 <Col>
                                     <Label>Total Bill: $</Label>
                                     <Input type="numbers" placeholder="Total Bill" name="totalBill" value={totalBill} placeholder="Enter Total Bill ($)" onChange={this.handleFormChange} />
-                                    {this.state.inputFlag === true && totalBill === "" ? <Alert color="warning">Please enter numbers!</Alert> : null}
+                                    {inputFlag === true && totalBill === "" ? <Alert color="warning">Please enter numbers!</Alert> : null}
                                 </Col>
                                 <Col>
                                     <label>Party Size</label>
@@ -112,7 +112,7 @@ class TipCalculator extends Component {
                         <Col style={{ color: 'White', fontSize: '14pt', marginLeft: '.3rem' }}>
                             <CardTitle style={{ padding: '0 .5rem' }}>Calculated Tip</CardTitle>
                             <Row>
-                                <Label style={{ padding: ' 0 .5rem' }}>Tip: </Label><CardText style={{ padding: '0 .5rem' }}>${calculatedTip}</CardText>
+                                <Label style={{ padding: ' 0 .5rem' }}>Tip: </Label><CardText style={{ padding: '0 .5rem' }}>${test}</CardText>
                             </Row>
                             <Row>
                                 <Label style={{ padding: '0 . 5rem' }}>Total Bill: </Label><CardText style={{ padding: '0 .5rem' }}>${calculatedBill}</CardText>
