@@ -1,13 +1,14 @@
 import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import TipCalculator from './Components/TipCalculator'
+import {TipCalcState as TipCalculator1, TipCalcFunc as TipCalculator2} from './Components/TipCalculator'
 
 
 function App() {
   return (
     <div className="App">
-      <TipCalculator />
+      <TipCalculator1 />
+      <TipCalculator2 />
     </div>
   );
 }
